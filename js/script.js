@@ -40,11 +40,11 @@ function handleMouseClick(e) {
 }
 
 // Load the Object
-window.onload = () => {
+window.onload = function() {
     canvas = document.getElementById('gamecanvas');
     canvasContext = canvas.getContext('2d');
     let framesPerSecond = 30;
-    setInterval(function () {
+    setInterval(function() {
         moveEverything();
         drawEverything();
     }, 1000 / framesPerSecond);
@@ -122,4 +122,45 @@ function drawNet() {
     for (let i=0;i<canvas.height;i+=40) {
         colorRect(canvas.width/2-1,i,2,20,'white');
     }
+}
+
+// Function to Draw Everything
+function drawEverything() {
+    // Blank Out the Screen with Canvas Color
+    colorRect(0,0,canvas.width,canvas.height,'#34568B');
+
+    if (showingWinScreen) {
+        canvasContext.fillStyle = 'white';
+        canvasContext.textAlign = 'center';
+        if (player1Score >= WINNING_SCORE) {
+            canvasContext.font = '50px Roboto';
+            canvasContext.fillText('You won',canvas.width/2,canvas.height/2);
+        } else if (player2Score >= WINNING_SCORE) {
+            canvasContext.font = '50px Roboto';
+            canvasContext.fillText('Computer won',canvas.width/2,canvas.height/2); 
+        }
+        canvasContext.font = '40px Roboto';
+        canvasContext.fillText('click to continue',canvas.width/2,500);
+        return;
+
+    }
+
+    drawNet();
+
+    // Left Player Paddle
+    canvasContext.globalAlpha = 1;
+    colorRect(0,paddle1Y,PADDLE_THICKNESS,PADDLE_HEIGHT,'white');
+
+    // Right Player Paddle
+    colorRect(canvas.width-PADDLE_THICKNESS,paddle2Y,PADDLE_THICKNESS,PADDLE_HEIGHT,'white');
+
+    // Draw the Ball
+    colorCircle(ballX,ballY,10,'white');
+    
+    canvasContext.font = '200px Roboto';
+    canvasContext.globalAlpha = 0.6;
+    canvasContext.fillStyle = 'white';
+    canvasContext.fillText(player1Score,150,300);
+    canvasContext.fillText(player2Score,canvas.width-150,300);
+
 }
