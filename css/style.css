@@ -1,0 +1,15 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Body */
+body {
+    font-family: "Roboto", Arial, Verdana, sans-serif;
+    background: #34568B;
+}
+
+/* Canvas */
+canvas {
+    display: flex;
+    justify-content: center;
+    background: #34568B;
+}
