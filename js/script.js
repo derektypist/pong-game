@@ -66,3 +66,13 @@ function ballReset() {
     ballX = canvas.width/2;
     ballY = canvas.height/2;
 }
+
+// Function to Perform Computer Movement
+function computerMovement() {
+    let paddle2YCenter = paddle2Y + (PADDLE_HEIGHT/2);
+    if (paddle2YCenter < ballY - 35) {
+        paddle2Y += 60;
+    } else if (paddle2YCenter > ballY + 35) {
+        paddle2Y -= 60;
+    }
+}
