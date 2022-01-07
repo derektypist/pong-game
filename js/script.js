@@ -156,11 +156,20 @@ function drawEverything() {
 
     // Draw the Ball
     colorCircle(ballX,ballY,10,'white');
-    
+
     canvasContext.font = '200px Roboto';
     canvasContext.globalAlpha = 0.6;
     canvasContext.fillStyle = 'white';
     canvasContext.fillText(player1Score,150,300);
     canvasContext.fillText(player2Score,canvas.width-150,300);
 
+}
+
+// Function to Color Circle
+function colorCircle(centerX,centerY,radius,drawColor) {
+    canvasContext.fillStyle = drawColor;
+    canvasContext.globalAlpha = 0.6;
+    canvasContext.beginPath();
+    canvasContext.arc(centerX,centerY,radius,0,Math.PI*2,true);
+    canvasContext.fill();
 }
