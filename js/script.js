@@ -76,3 +76,43 @@ function computerMovement() {
         paddle2Y -= 60;
     }
 }
+
+// Function to Move Everything
+function moveEverything() {
+    if (showingWinScreen) {
+        return;
+    }
+
+    computerMovement();
+    ballX += ballSpeedX;
+    ballY += ballSpeedY;
+    if (ballX < 0) {
+        if (ballY > paddle1Y && ballY < paddle1Y + PADDLE_HEIGHT) {
+            ballSpeedX = - ballSpeedX;
+            let deltaY = ballY - (paddle1Y + PADDLE_HEIGHT/2);
+            ballSpeedY = deltaY * 0.35;
+        } else {
+            player2Score++;
+            ballReset();
+        }
+    }
+
+    if (ballX > canvas.width) {
+        if (ballY > paddle2Y && ballY < paddle2Y + PADDLE_HEIGHT) {
+            ballSpeedX = -ballSpeedX;
+            let deltaY = ballY - (paddle1Y + PADDLE_HEIGHT/2);
+            ballSpeedY = deltaY * 0.35;
+        } else {
+            player1Score++;
+            ballReset();
+        }
+    }
+
+    if (ballY < 0) {
+        ballSpeedY = - ballSpeedY;
+    }
+
+    if (ballY > canvas.height) {
+        ballSpeedY = - ballSpeedY;
+    }
+}
