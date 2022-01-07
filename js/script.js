@@ -1,4 +1,4 @@
-// Set Up Variables and Constants
+// Set Up Global Variables and Constants
 const canvas = document.getElementsByTagName('canvas')[0];
 let canvasContext;
 let ballX = 50;
@@ -15,3 +15,10 @@ let paddle1Y = 250;
 let paddle2Y = 250;
 const PADDLE_THICKNESS = 14;
 const PADDLE_HEIGHT = 130;
+
+// Set Up Functions
+function calculateMousePos(e) {
+    let rect = canvas.getBoundingClientRect();
+    let root = document.documentElement;
+    let mouseX = e.clientX - rect.left - 
+}
