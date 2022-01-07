@@ -116,3 +116,10 @@ function moveEverything() {
         ballSpeedY = - ballSpeedY;
     }
 }
+
+// Function to Draw Net
+function drawNet() {
+    for (let i=0;i<canvas.height;i+=40) {
+        colorRect(canvas.width/2-1,i,2,20,'white');
+    }
+}
