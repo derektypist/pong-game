@@ -17,8 +17,15 @@ const PADDLE_THICKNESS = 14;
 const PADDLE_HEIGHT = 130;
 
 // Set Up Functions
+
+// Function to Calculate Mouse Position
 function calculateMousePos(e) {
     let rect = canvas.getBoundingClientRect();
     let root = document.documentElement;
-    let mouseX = e.clientX - rect.left - 
+    let mouseX = e.clientX - rect.left - root.scrollLeft;
+    let mouseY = e.clientY - rect.top - root.scrollTop;
+    return {
+        x: mouseX,
+        y: mouseY
+    };
 }
