@@ -152,6 +152,7 @@ function drawEverything() {
     colorRect(0,paddle1Y,PADDLE_THICKNESS,PADDLE_HEIGHT,'white');
 
     // Right Player Paddle
+    canvasContext.globalAlpha = 1;
     colorRect(canvas.width-PADDLE_THICKNESS,paddle2Y,PADDLE_THICKNESS,PADDLE_HEIGHT,'white');
 
     // Draw the Ball
