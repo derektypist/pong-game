@@ -13,3 +13,13 @@ As a user, I expect the computers paddle to be unbeatable.  It should never miss
 
 As a user, the game keeps track of the player and computer's score.
 
+## Credits
+
+### Content
+
+Taken from satyam, which was accessed on 7 January 2022.
+
+### Acknowledgements
+
+- [satyam](https://codepen.io/satyamdev/full/pdMmBp)
+- [FreeCodeCamp](https://www.freecodecamp.org)
