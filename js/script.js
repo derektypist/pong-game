@@ -179,3 +179,8 @@ function colorRect(leftX,topY,width,height,drawColor) {
     canvasContext.fillStyle = drawColor;
     canvasContext.fillRect(leftX,topY,width,height);
 }
+
+window.addEventListener('resize',() => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
