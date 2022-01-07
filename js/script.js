@@ -71,9 +71,9 @@ function ballReset() {
 function computerMovement() {
     let paddle2YCenter = paddle2Y + (PADDLE_HEIGHT/2);
     if (paddle2YCenter < ballY - 35) {
-        paddle2Y += 60;
+        paddle2Y = paddle2Y + 60;
     } else if (paddle2YCenter > ballY + 35) {
-        paddle2Y -= 60;
+        paddle2Y = paddle2Y - 60;
     }
 }
 
@@ -84,11 +84,11 @@ function moveEverything() {
     }
 
     computerMovement();
-    ballX += ballSpeedX;
-    ballY += ballSpeedY;
+    ballX = ballX + ballSpeedX;
+    ballY = ballY + ballSpeedY;
     if (ballX < 0) {
         if (ballY > paddle1Y && ballY < paddle1Y + PADDLE_HEIGHT) {
-            ballSpeedX = - ballSpeedX;
+            ballSpeedX = -ballSpeedX;
             let deltaY = ballY - (paddle1Y + PADDLE_HEIGHT/2);
             ballSpeedY = deltaY * 0.35;
         } else {
@@ -152,7 +152,6 @@ function drawEverything() {
     colorRect(0,paddle1Y,PADDLE_THICKNESS,PADDLE_HEIGHT,'white');
 
     // Right Player Paddle
-    canvasContext.globalAlpha = 1;
     colorRect(canvas.width-PADDLE_THICKNESS,paddle2Y,PADDLE_THICKNESS,PADDLE_HEIGHT,'white');
 
     // Draw the Ball
